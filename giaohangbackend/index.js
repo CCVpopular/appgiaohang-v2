@@ -24,10 +24,10 @@ admin.initializeApp({
 
 //Cau hinh ket noi database
 const dbConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: '', 
-  database: 'giaohang_db'
+  host: 'sql12.freesqldatabase.com',
+  user: 'sql12771448',
+  password: '3bNJjGJpij', 
+  database: 'sql12771448'
 };
 
 const initializeDatabase = async () => {
