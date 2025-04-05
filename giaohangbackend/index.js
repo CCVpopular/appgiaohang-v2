@@ -163,7 +163,7 @@ app.use((err, req, res, next) => {
 app.use(handle404);
 
 // Start server
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
