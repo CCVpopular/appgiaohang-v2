@@ -15,7 +15,18 @@ import agoraRoutes from './routes/agora.js';
 import { Server } from 'socket.io';
 import { createServer } from 'http';
 import admin from 'firebase-admin';
-import serviceAccount from './key/appgiaohangonline-firebase-adminsdk.json' assert { type: "json" };
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+// Get the directory path for the current module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Read the service account file
+const serviceAccount = JSON.parse(
+  fs.readFileSync(join(__dirname, './key/appgiaohangonline-firebase-adminsdk.json'), 'utf8')
+);
 
 // Initialize Firebase Admin before other initializations
 admin.initializeApp({
