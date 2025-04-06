@@ -25,7 +25,7 @@ jobs:
 
       - name: Start server in background
         run: |
-          nohup npm start &
+          nohup node index.js &
           sleep 5
 
       - name: Install Postman CLI
