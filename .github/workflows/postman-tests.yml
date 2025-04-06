@@ -7,6 +7,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./giaohangbackend
 
     steps:
       - name: Checkout Code
@@ -16,9 +19,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-
-      - name: cd foder
-        run: cd giaohangbackend
 
       - name: Install dependencies
         run: npm install
