@@ -32,7 +32,7 @@ jobs:
       - name: Start server in background
         run: |
           nohup node index.js &
-          sleep 5
+          sleep 10
 
       - name: Install Postman CLI
         run: |

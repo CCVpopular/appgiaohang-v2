@@ -13,7 +13,7 @@ export const createTables = async (pool) => {
         balance DECIMAL(10,2) DEFAULT 0.00,
         fcm_token VARCHAR(255),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        updated_at TIMESTAMP NULL
       )
     `);
     
@@ -26,7 +26,7 @@ export const createTables = async (pool) => {
         license_plate VARCHAR(20) NOT NULL,
         status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL,
         FOREIGN KEY (user_id) REFERENCES users(id)
       )
     `);
@@ -43,7 +43,7 @@ export const createTables = async (pool) => {
         latitude DOUBLE,
         longitude DOUBLE,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL,
         FOREIGN KEY (owner_id) REFERENCES users(id)
       )
     `);
@@ -57,7 +57,7 @@ export const createTables = async (pool) => {
         store_id INT,
         is_available BOOLEAN DEFAULT true,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL,
         FOREIGN KEY (store_id) REFERENCES food_stores(id)
       )
     `);
@@ -71,7 +71,7 @@ export const createTables = async (pool) => {
         longitude DOUBLE,
         is_selected BOOLEAN DEFAULT false,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL,
         FOREIGN KEY (user_id) REFERENCES users(id)
       )
     `);
@@ -93,7 +93,7 @@ export const createTables = async (pool) => {
         shipping_fee DECIMAL(10,2),
         note TEXT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL,
         FOREIGN KEY (user_id) REFERENCES users(id),
         FOREIGN KEY (shipper_id) REFERENCES users(id)
       )
