@@ -28,6 +28,7 @@ const serviceAccount = JSON.parse(
   fs.readFileSync(join(__dirname, './key/appgiaohangonline-firebase-adminsdk.json'), 'utf8')
 );
 
+
 // Initialize Firebase Admin before other initializations
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
